@@ -8,12 +8,12 @@ from twisted.logger import jsonFileLogObserver, Logger
 from twisted.web.client import Agent, FileBodyProducer
 from twisted.web.http_headers import Headers
 
-from TwistedInfluxDB import TwistedInfluxDBClient
-from TwistedInfluxDB import InfluxObject
+from twistedInfluxDB.Client import InfluxClient
+from twistedInfluxDB.Object import InfluxObject
 
 
 log = Logger(observer=jsonFileLogObserver(io.open("log.json", "a")))
-db = TwistedInfluxDBClient('http://localhost', 8086, 'example', log)
+db = InfluxClient('http://localhost', 8086, 'example', log)
 
 data = {
     'value' : 151561651,
@@ -37,12 +37,12 @@ def done(_):
     reactor.stop()
 
 d = Deferred()
-#d.addCallback(db.insert)
-d.addCallback(db.query)
+d.addCallback(db.write_points)
+#d.addCallback(db.query)
 d.addCallbacks(inserted, failed)
 d.addBoth(done)
-#d.callback(infObj)
-d.callback(query)
+d.callback(infObj)
+#d.callback(query)
 
 reactor.run()
 
