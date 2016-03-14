@@ -1,12 +1,8 @@
 import io
-import json
-from StringIO import StringIO
 
 from twisted.internet import reactor
 from twisted.internet.defer import Deferred
 from twisted.logger import jsonFileLogObserver, Logger
-from twisted.web.client import Agent, FileBodyProducer
-from twisted.web.http_headers import Headers
 
 from twistedInfluxDB.Client import InfluxClient
 from twistedInfluxDB.Object import InfluxObject
