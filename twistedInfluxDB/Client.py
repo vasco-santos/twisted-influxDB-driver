@@ -88,7 +88,7 @@ class InfluxClient(object):
         # Rest Method
         params = {
             'db': self.database,
-            'q': query
+            'q': query.generate_query()
         }
         d = agent.request(
             'GET',
