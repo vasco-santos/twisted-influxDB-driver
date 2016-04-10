@@ -20,13 +20,15 @@ For installing Twisted, run the following commands:
 pip install twisted
 ```
 
+Tested using InfuxDB versions 0.10, 0.11 and 0.12.
+
 ## Documentation
 
 Work in progress... (Sphinx based)
 
 ## Examples
 
-This repository contains 3 twisted examples to exemplify how to use the developed API.
+This repository contains 3 twisted examples to exemplify how to use the developed API. It is also compatible with InfluxDB Clusters.
 
 ### Example 1 - testCreate.py
 
@@ -43,9 +45,5 @@ Insert new data to a specific measure in an InfluxDB database.
 ### Example 3 - testQuery.py
 
 ```
-Make a parameterizable query to aa InfluxDB database.
+Make a parameterizable query to an InfluxDB database.
 ```
-
-## Future Work
-
-Client Cluster API Module.
